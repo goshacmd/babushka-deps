@@ -16,15 +16,33 @@ dep 'dotfiles', :user do
   }
 end
 
+dep 'zsh.managed'
+
+dep 'oh-my-zsh' do
+  requires 'zsh.managed'
+  met? { (ENV['HOME'] / '.oh-my-zsh').dir? }
+  meet {
+    shell 'curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh'
+  }
+end
+
+dep 'janus' do
+  met? { (ENV['HOME'] / '.vim/janus').dir? }
+  meet { shell 'curl -Lo- https://bit.ly/janus-bootstrap | bash' }
+end
+
 dep 'bootstrap' do
   shell "echo 'export GITHUB_TOKEN=#{ENV['GITHUB_TOKEN']}' > #{ENV['HOME']}/.zshrc.local"
   requires 'system',
     'myfreeweb:ssh key exists',
     'projects',
     'dotfiles'.with('goshakkk'),
+    'zsh.managed',
+    'oh-my-zsh',
     'dbs',
     'ruby-dev',
-    'common-dev'
+    'common-dev',
+    'janus'
   on :osx do
     requires 'mac-bootstrap'
   end
