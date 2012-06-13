@@ -24,6 +24,7 @@ dep 'bundler.gem' do
 end
 
 dep 'pry.gem'
+dep 'powder.gem'
 
 dep 'heroku.gem' do
   after do
@@ -31,11 +32,14 @@ dep 'heroku.gem' do
   end
 end
 
+dep 'pow.managed'
+
 dep 'ruby-dev' do
   requires 'rbenv.managed',
     'ruby-build.managed',
     '1.9.3-p194.rbenv',
     'bundler.gem',
     'heroku.gem',
-    'pry.gem'
+    'pry.gem',
+    'powder.gem'
 end
