@@ -42,6 +42,7 @@ dep 'bootstrap' do
     'dbs',
     'ruby-dev',
     'common-dev',
+    'clojure-dev',
     'janus'
   on :osx do
     requires 'mac-bootstrap'
