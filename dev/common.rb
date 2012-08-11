@@ -25,12 +25,8 @@ dep 'common-dev' do
     'ctags.managed',
     'ack.managed',
     'hub.managed',
-<<<<<<< HEAD
-    'launchy.gem',
-=======
     'lunchy.gem',
     'terminal-notifier.gem',
     'terminal-notifier.app',
->>>>>>> 66b75d8... fix
     'manservant'
 end
