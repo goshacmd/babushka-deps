@@ -4,6 +4,12 @@ dep 'tree.managed'
 dep 'ctags.managed'
 dep 'ack.managed'
 dep 'hub.managed'
+dep 'lunchy.gem'
+dep 'terminal-notifier.gem'
+
+dep 'terminal-notifier.app' do
+  source 'https://github.com/downloads/alloy/terminal-notifier/terminal-notifier_1.4.2.zip'
+end
 
 dep 'manservant' do
   requires 'pow.managed'
@@ -19,5 +25,12 @@ dep 'common-dev' do
     'ctags.managed',
     'ack.managed',
     'hub.managed',
+<<<<<<< HEAD
+    'launchy.gem',
+=======
+    'lunchy.gem',
+    'terminal-notifier.gem',
+    'terminal-notifier.app',
+>>>>>>> 66b75d8... fix
     'manservant'
 end
