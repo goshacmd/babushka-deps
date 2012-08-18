@@ -6,6 +6,8 @@ dep 'ack.managed'
 dep 'hub.managed'
 dep 'lunchy.gem'
 dep 'terminal-notifier.gem'
+dep 'cowsay.managed'
+dep 'lolcat.gem'
 
 dep 'terminal-notifier.app' do
   source 'https://github.com/downloads/alloy/terminal-notifier/terminal-notifier_1.4.2.zip'
@@ -28,5 +30,7 @@ dep 'common-dev' do
     'lunchy.gem',
     'terminal-notifier.gem',
     'terminal-notifier.app',
-    'manservant'
+    'manservant',
+    'cowsay.managed',
+    'lolcat.gem'
 end
