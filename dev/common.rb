@@ -24,6 +24,11 @@ dep 'htop-osx.managed' do
   provides 'htop'
 end
 
+dep 'moreutils.managed' do
+  provides 'chronic', 'combine', 'ifne', 'isutf8', 'lckdo', 'mispipe',
+    'parallel', 'pee', 'sponge', 'ts', 'vidir', 'vipe', 'zrun'
+end
+
 dep 'manservant' do
   requires 'pow.managed'
 
@@ -45,6 +50,7 @@ dep 'common-dev' do
     'ctags.managed',
     'ack.managed',
     'htop-osx.managed',
+    'moreutils.managed',
     'hub.managed',
     'lunchy.gem',
     'terminal-notifier.gem',
