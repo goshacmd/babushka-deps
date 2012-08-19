@@ -6,6 +6,7 @@ dep 'httperf.managed'
 dep 'wget.managed'
 dep 'tree.managed'
 dep 'multitail.managed'
+dep 'rlwrap.managed'
 dep 'ctags.managed'
 dep 'ack.managed'
 dep 'hub.managed'
@@ -38,6 +39,7 @@ dep 'common-dev' do
     'wget.managed',
     'tree.managed',
     'multitail.managed',
+    'rlwrap.managed',
     'ctags.managed',
     'ack.managed',
     'htop-osx.managed',
