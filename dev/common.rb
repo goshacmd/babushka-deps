@@ -13,6 +13,10 @@ dep 'terminal-notifier.app' do
   source 'https://github.com/downloads/alloy/terminal-notifier/terminal-notifier_1.4.2.zip'
 end
 
+dep 'htop-osx.managed' do
+  provides 'htop'
+end
+
 dep 'manservant' do
   requires 'pow.managed'
 
@@ -26,6 +30,7 @@ dep 'common-dev' do
     'tree.managed',
     'ctags.managed',
     'ack.managed',
+    'htop-osx.managed',
     'hub.managed',
     'lunchy.gem',
     'terminal-notifier.gem',
