@@ -10,6 +10,10 @@ dep 'MacVim.app' do
   source 'https://github.com/downloads/b4winckler/macvim/MacVim-snapshot-64.tbz'
 end
 
+dep 'iTerm.app' do
+  source 'http://iterm2.googlecode.com/files/iTerm2-1_0_0_20120726.zip'
+end
+
 dep 'mac-bootstrap' do
-  requires '1Password.app', 'Transmission.app', 'MacVim.app'
+  requires '1Password.app', 'Transmission.app', 'iTerm.app'
 end
