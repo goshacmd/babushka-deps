@@ -6,14 +6,19 @@ dep 'Transmission.app' do
   source 'http://download.transmissionbt.com/files/Transmission-2.52.dmg'
 end
 
-dep 'MacVim.app' do
-  source 'https://github.com/downloads/b4winckler/macvim/MacVim-snapshot-64.tbz'
-end
-
 dep 'iTerm.app' do
   source 'http://iterm2.googlecode.com/files/iTerm2-1_0_0_20120726.zip'
 end
 
+dep 'mac-settings' do
+  met? { File.exists? ENV['HOME'] / '.CFUserTextEncoding' }
+  meet {
+    shell 'chflags nohidden ~/Library'
+    shell 'defaults write com.apple.finder QLEnableTextSelection -bool true'
+    shell "echo '0x08000100:0' > ~/.CFUserTextEncoding"
+  }
+end
+
 dep 'mac-bootstrap' do
-  requires '1Password.app', 'Transmission.app', 'iTerm.app'
+  requires 'mac-settings', '1Password.app', 'Transmission.app', 'iTerm.app'
 end
