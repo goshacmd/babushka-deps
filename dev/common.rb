@@ -12,6 +12,7 @@ dep 'ctags.managed'
 dep 'ack.managed'
 dep 'hub.managed'
 dep 'markdown.managed'
+dep 'cloc.managed'
 dep 'lunchy.gem'
 dep 'terminal-notifier.gem'
 dep 'cowsay.managed'
@@ -51,6 +52,7 @@ dep 'common-dev' do
     'ctags.managed',
     'ack.managed',
     'markdown.managed',
+    'cloc.managed',
     'htop-osx.managed',
     'moreutils.managed',
     'hub.managed',
