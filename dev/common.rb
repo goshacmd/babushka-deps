@@ -2,6 +2,7 @@ dep 'tmux.managed'
 dep 'nmap.managed'
 dep 'iftop.managed'
 dep 'siege.managed'
+dep 'httperf.managed'
 dep 'wget.managed'
 dep 'tree.managed'
 dep 'ctags.managed'
@@ -32,6 +33,7 @@ dep 'common-dev' do
     'nmap.managed',
     'iftop.managed',
     'siege.managed',
+    'httperf.managed',
     'wget.managed',
     'tree.managed',
     'ctags.managed',
