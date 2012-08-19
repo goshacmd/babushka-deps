@@ -20,6 +20,7 @@ dep 'lolcat.gem'
 dep 'gist.managed'
 dep 'spark.managed'
 dep 'bcat.gem'
+dep 'ronn.gem'
 
 dep 'terminal-notifier.app' do
   source 'https://github.com/downloads/alloy/terminal-notifier/terminal-notifier_1.4.2.zip'
@@ -67,5 +68,6 @@ dep 'common-dev' do
     'lolcat.gem',
     'gist.managed',
     'spark.managed',
-    'bcat.gem'
+    'bcat.gem',
+    'ronn.gem'
 end
