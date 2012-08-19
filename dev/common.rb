@@ -7,6 +7,7 @@ dep 'wget.managed'
 dep 'tree.managed'
 dep 'multitail.managed'
 dep 'rlwrap.managed'
+dep 'pv.managed'
 dep 'ctags.managed'
 dep 'ack.managed'
 dep 'hub.managed'
@@ -40,6 +41,7 @@ dep 'common-dev' do
     'tree.managed',
     'multitail.managed',
     'rlwrap.managed',
+    'pv.managed',
     'ctags.managed',
     'ack.managed',
     'htop-osx.managed',
