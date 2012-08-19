@@ -1,4 +1,6 @@
 dep 'tmux.managed'
+dep 'nmap.managed'
+dep 'iftop.managed'
 dep 'wget.managed'
 dep 'tree.managed'
 dep 'ctags.managed'
@@ -26,6 +28,8 @@ end
 
 dep 'common-dev' do
   requires 'tmux.managed',
+    'nmap.managed',
+    'iftop.managed',
     'wget.managed',
     'tree.managed',
     'ctags.managed',
