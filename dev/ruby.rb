@@ -36,7 +36,10 @@ end
 dep 'pry.gem'
 dep 'powder.gem'
 
-dep 'heroku.gem' do
+dep 'heroku' do
+  met? { which 'heroku' }
+  meet { shell 'wget -qO- https://toolbelt.heroku.com/install-other.sh | sh' }
+
   after do
     system 'heroku login'
   end
