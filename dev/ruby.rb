@@ -53,7 +53,7 @@ dep 'ruby-dev' do
     '1.9.3-p194.rbenv',
     '1.9.3-p194 global',
     'bundler.gem',
-    'heroku.gem',
+    'heroku',
     'pry.gem',
     'powder.gem'
 end

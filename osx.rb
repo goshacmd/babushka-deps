@@ -10,6 +10,10 @@ dep 'iTerm.app' do
   source 'http://iterm2.googlecode.com/files/iTerm2-1_0_0_20120726.zip'
 end
 
+dep 'Slate.app' do
+  source 'http://slate.ninjamonkeysoftware.com/Slate.dmg'
+end
+
 dep 'mac-settings' do
   met? { File.exists? ENV['HOME'] / '.CFUserTextEncoding' }
   meet {
@@ -20,5 +24,5 @@ dep 'mac-settings' do
 end
 
 dep 'mac-bootstrap' do
-  requires 'mac-settings', '1Password.app', 'Transmission.app', 'iTerm.app'
+  requires 'mac-settings', '1Password.app', 'Transmission.app', 'iTerm.app', 'Slate.app'
 end
