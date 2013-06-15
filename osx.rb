@@ -63,12 +63,33 @@ dep 'iTerm.app' do
 end
 
 dep 'mac-settings' do
+  def defaults_write(domain, key, type, value)
+    shell "defaults write #{domain} #{key} -#{type} #{value}"
+  end
+
   met? { File.exists? ENV['HOME'] / '.CFUserTextEncoding' }
   meet {
     shell 'chflags nohidden ~/Library'
-    shell 'defaults write com.apple.finder QLEnableTextSelection -bool true'
+    defaults_write('NSGlobalDomain', 'AppleKeyboardUIMode', 'int', 3) # full keyboard control access
+    defaults_write('NSGlobalDomain', 'AppleShowAllExtensions', 'bool', true) # show all file extensions
+    defaults_write('NSGlobalDomain', 'NSQuitAlwaysKeepsWindows', 'bool', true) # keep windows when quitting
+    defaults_write('com.apple.dock', 'tilesize', 'int', 64) # dock icon size
+    defaults_write('com.apple.finder', 'ShowExternalHardDrivesOnDesktop', 'bool', true) # -> show
+    defaults_write('com.apple.finder', 'ShowHardDrivesOnDesktop', 'bool', true)         # -> everything
+    defaults_write('com.apple.finder', 'ShowMountedServersOnDesktop', 'bool', true)     # -> on
+    defaults_write('com.apple.finder', 'ShowRemovableMediaOnDesktop', 'bool', true)     # -> desktop
+    defaults_write('com.apple.LaunchServices', 'LSQuarantine', 'bool', false) # disable app quarantine
+    defaults_write('com.apple.desktopservices', 'DSDontWriteNetworkStores', 'bool', true) # don't write network .DS_Store's
+    defaults_write('com.apple.Safari', 'IncludeDevelopMenu', 'bool', true) # show Develop menu in Safari
+    defaults_write('com.apple.Safari', 'WebKitDeveloperExtrasEnabledPreferenceKey', 'bool', true) # enable web inspector in Safari
+    defaults_write('org.m0k.transmission', 'DownloadAsk', 'bool', false) # don't prompt for confirmation in Transmission
+    defaults_write('org.m0k.transmission', 'DeleteOriginalTorrent', 'bool', true) # delete original torrent file in Transmission
+    defaults_write('org.m0k.transmission', 'WarningDonate', 'bool', false)
+    defaults_write('org.m0k.transmission', 'WarningLegal', 'bool', false)
+    defaults_write('com.apple.finder', 'QLEnableTextSelection', 'bool', true) # selection in quick look
     shell "echo '0x08000100:0' > ~/.CFUserTextEncoding"
   }
+  after { log_shell 'Killing Dock, Finder, and Safari', 'killall Dock Finder Safari' }
 end
 
 dep 'mac-bootstrap' do
