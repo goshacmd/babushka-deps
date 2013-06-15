@@ -3,7 +3,7 @@ export LC_ALL="en_US.UTF-8"
 
 if [[ $(uname) == "Darwin" ]]; then
   if [[ -e $(which xcode-select) ]]; then
-    [[ -e $(which brew) ]] || /usr/bin/ruby -e "$(curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+    [[ -e $(which brew) ]] || /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
     brew update
     [[ -e $(which automake) ]] || brew install automake # babushka thinks xcode includes automake, but it doesn't since 4.3
     [[ -e $(which git) ]] || brew install git
