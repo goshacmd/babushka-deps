@@ -1,3 +1,4 @@
+dep 'heroku-toolbelt.managed'
 dep 'tmux.managed'
 dep 'nmap.managed'
 dep 'iftop.managed'
@@ -13,8 +14,9 @@ dep 'ack.managed'
 dep 'hub.managed'
 dep 'markdown.managed'
 dep 'cloc.managed'
+dep 'reattach-to-user-namespace.managed'
 dep 'lunchy.gem'
-dep 'terminal-notifier.gem'
+dep 'fortune.managed'
 dep 'cowsay.managed'
 dep 'lolcat.gem'
 dep 'gist.managed'
@@ -22,8 +24,9 @@ dep 'spark.managed'
 dep 'bcat.gem'
 dep 'ronn.gem'
 
-dep 'terminal-notifier.app' do
-  source 'https://github.com/downloads/alloy/terminal-notifier/terminal-notifier_1.4.2.zip'
+dep 'vagrant.installer' do
+  source 'http://files.vagrantup.com/packages/7e400d00a3c5a0fdf2809c8b5001a035415a607b/Vagrant-1.2.2.dmg'
+  provides 'vagrant'
 end
 
 dep 'htop-osx.managed' do
@@ -35,15 +38,10 @@ dep 'moreutils.managed' do
     'parallel', 'pee', 'sponge', 'ts', 'vidir', 'vipe', 'zrun'
 end
 
-dep 'manservant' do
-  requires 'pow.managed'
-
-  met? { (ENV['HOME'] / '.pow/man').dir? }
-  meet { git "git://github.com/jimeh/manservant.git", :to => ENV['HOME'] / '.pow/man' }
-end
-
 dep 'common-dev' do
-  requires 'tmux.managed',
+  requires 'heroku-toolbelt.managed',
+    'vagrant.installer',
+    'tmux.managed',
     'nmap.managed',
     'iftop.managed',
     'siege.managed',
@@ -57,13 +55,12 @@ dep 'common-dev' do
     'ack.managed',
     'markdown.managed',
     'cloc.managed',
+    'reattach-to-user-namespace.managed',
     'htop-osx.managed',
     'moreutils.managed',
     'hub.managed',
     'lunchy.gem',
-    'terminal-notifier.gem',
-    'terminal-notifier.app',
-    'manservant',
+    'fortune.managed',
     'cowsay.managed',
     'lolcat.gem',
     'gist.managed',

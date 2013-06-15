@@ -4,41 +4,44 @@ dep 'projects' do
 end
 
 dep 'dotfiles', :user do
-  requires 'benhoskings:zsh', 'tsommer:oh-my-zsh'
-  dpath = ENV['HOME'] / 'Projects/dotfiles'
+  requires 'benhoskings:zsh'
+
+  path = ENV['HOME'] / 'Projects/dotfiles'
+
   met? { File.exists? dpath }
   meet {
-    git "git@github.com:#{user}/dotfiles.git", :to => dpath
+    git "git@github.com:#{user}/dotfiles.git", :to => path
+
     cd(dpath) {
       shell 'git submodule update --init --recursive'
-      shell 'zsh install.sh'
+      shell 'sh install.sh'
     }
   }
 end
 
 dep 'zsh.managed'
 
-dep 'oh-my-zsh' do
+dep 'prezto' do
   requires 'zsh.managed'
-  met? { (ENV['HOME'] / '.oh-my-zsh').dir? }
-  meet {
-    shell 'curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh'
-  }
+
+  path = ENV['HOME'] / '.zprezto'
+
+  met? { File.exists? path }
+  meet { git "git@github.com:sorin-ionescu/prezto.git", :to => path }
 end
 
 dep 'janus' do
-  met? { (ENV['HOME'] / '.vim/janus').dir? }
-  meet { shell 'curl -Lo- https://bit.ly/janus-bootstrap | bash' }
+  path = ENV['HOME'] / '.vim'
+  met? { File.exists? path }
+  meet { git "git.github.com:carlhuda/janus.git", :to => path }
 end
 
 dep 'bootstrap' do
-  shell "echo 'export GITHUB_TOKEN=#{ENV['GITHUB_TOKEN']}' > #{ENV['HOME']}/.zshrc.local"
   requires 'system',
-    'myfreeweb:ssh key exists',
     'projects',
     'dotfiles'.with('goshakkk'),
     'zsh.managed',
-    'oh-my-zsh',
+    'prezto',
     'dbs',
     'ruby-dev',
     'common-dev',
