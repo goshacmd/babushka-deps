@@ -1,4 +1,7 @@
-dep 'heroku-toolbelt.managed'
+dep 'heroku-toolbelt.managed' do
+  provides 'heroku'
+end
+
 dep 'tmux.managed'
 dep 'nmap.managed'
 dep 'iftop.managed'
