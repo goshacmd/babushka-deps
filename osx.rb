@@ -74,6 +74,7 @@ dep 'mac-settings' do
     defaults_write('NSGlobalDomain', 'AppleShowAllExtensions', 'bool', true) # show all file extensions
     defaults_write('NSGlobalDomain', 'NSQuitAlwaysKeepsWindows', 'bool', true) # keep windows when quitting
     defaults_write('com.apple.dock', 'tilesize', 'int', 64) # dock icon size
+    defaults_write('com.apple.dock', 'autohide', 'bool', false) # don't hide the dock
     defaults_write('com.apple.finder', 'ShowExternalHardDrivesOnDesktop', 'bool', true) # -> show
     defaults_write('com.apple.finder', 'ShowHardDrivesOnDesktop', 'bool', true)         # -> everything
     defaults_write('com.apple.finder', 'ShowMountedServersOnDesktop', 'bool', true)     # -> on
