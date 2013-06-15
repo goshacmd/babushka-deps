@@ -3,8 +3,17 @@ dep 'projects' do
   meet { log_shell 'Make ~/Projects', 'mkdir ~/Projects' }
 end
 
+dep 'zsh_default', :username do
+  requires 'zsh.managed'
+
+  username.default!(shell('whoami'))
+
+  met? { shell("sudo su - '#{username}' -c 'echo $SHELL'")[which('zsh')] }
+  meet { sudo("chsh -s '#{which('zsh')}' #{username}") }
+end
+
 dep 'dotfiles', :user do
-  requires 'benhoskings:zsh'
+  requires 'zsh_default'
 
   path = ENV['HOME'] / 'Projects/dotfiles'
 
