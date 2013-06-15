@@ -4,7 +4,6 @@ end
 
 dep 'tmux.managed'
 dep 'nmap.managed'
-dep 'iftop.managed'
 dep 'siege.managed'
 dep 'httperf.managed'
 dep 'wget.managed'
@@ -46,7 +45,6 @@ dep 'common-dev' do
     'vagrant.installer',
     'tmux.managed',
     'nmap.managed',
-    'iftop.managed',
     'siege.managed',
     'httperf.managed',
     'wget.managed',
