@@ -8,11 +8,11 @@ dep 'dotfiles', :user do
 
   path = ENV['HOME'] / 'Projects/dotfiles'
 
-  met? { File.exists? dpath }
+  met? { File.exists? path }
   meet {
     git "git@github.com:#{user}/dotfiles.git", :to => path
 
-    cd(dpath) {
+    cd(path) {
       shell 'git submodule update --init --recursive'
       shell 'sh install.sh'
     }
