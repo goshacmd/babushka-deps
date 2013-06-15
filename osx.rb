@@ -47,7 +47,7 @@ dep 'GitHub.app' do
 end
 
 dep 'Alfred.app' do
-  source 'http://cachefly.alfredapp.com/beta/Alfred%202%20b137.zip'
+  source 'http://cachefly.alfredapp.com/Alfred_2.0.5_202.zip'
 end
 
 dep 'Bartender.app' do
