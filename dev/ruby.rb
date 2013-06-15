@@ -36,15 +36,6 @@ end
 dep 'pry.gem'
 dep 'powder.gem'
 
-dep 'heroku' do
-  met? { which 'heroku' }
-  meet { shell 'wget -qO- https://toolbelt.heroku.com/install-other.sh | sh' }
-
-  after do
-    system 'heroku login'
-  end
-end
-
 dep 'pow.managed'
 
 dep 'ruby-dev' do
@@ -53,7 +44,6 @@ dep 'ruby-dev' do
     '1.9.3-p429.rbenv',
     '1.9.3-p429 global',
     'bundler.gem',
-    'heroku',
     'pry.gem',
     'powder.gem'
 end
