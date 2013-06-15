@@ -36,7 +36,10 @@ dep 'prezto' do
   path = ENV['HOME'] / '.zprezto'
 
   met? { File.exists? path }
-  meet { git "git@github.com:sorin-ionescu/prezto.git", :to => path }
+  meet {
+    git "git@github.com:sorin-ionescu/prezto.git", :to => path
+    cd(path) { shell 'git submodule update --init --recursive' }
+  }
 end
 
 dep 'janus' do
