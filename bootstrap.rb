@@ -41,8 +41,12 @@ end
 
 dep 'janus' do
   path = ENV['HOME'] / '.vim'
+
   met? { File.exists? path }
-  meet { git "git.github.com:carlhuda/janus.git", :to => path }
+  meet {
+    git "git@github.com:carlhuda/janus.git", :to => path
+    cd(path) { shell 'rake' }
+  }
 end
 
 dep 'bootstrap' do
