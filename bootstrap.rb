@@ -42,14 +42,13 @@ dep 'prezto' do
   }
 end
 
-dep 'janus' do
-  path = ENV['HOME'] / '.vim'
-
+dep 'vundle' do
+  path = ENV['HOME'] / '.vim/bundles'
   met? { File.exists? path }
-  meet {
-    git "git@github.com:carlhuda/janus.git", :to => path
-    cd(path) { shell 'rake' }
-  }
+  meet do
+    mkdir_p(path)
+    git "https://github.com/gmarik/vundle.git", :to => path
+  end
 end
 
 dep 'bootstrap' do
@@ -62,7 +61,7 @@ dep 'bootstrap' do
     'ruby-dev',
     'common-dev',
     'clojure-dev',
-    'janus'
+    'vundle'
   on :osx do
     requires 'mac-bootstrap'
   end

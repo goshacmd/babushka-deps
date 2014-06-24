@@ -17,14 +17,14 @@ meta :rbenv do
   }
 end
 
-dep '1.9.3-p429.rbenv'
+dep '2.1.0-p0.rbenv'
 
-dep '1.9.3-p429 global' do
-  requires '1.9.3-p429.rbenv'
+dep '2.1.0-p0 global' do
+  requires '2.1.0-p0.rbenv'
 
-  met? { `rbenv global`.include? '1.9.3-p429' }
+  met? { `rbenv global`.include? '2.1.0-p0' }
   meet {
-    shell 'rbenv global 1.9.3-p429'
+    shell 'rbenv global 2.1.0-p0'
   }
   after { log_shell 'rbenv rehash', 'rbenv rehash' }
 end
@@ -34,15 +34,11 @@ dep 'bundler.gem' do
 end
 
 dep 'pry.gem'
-dep 'powder.gem'
-
-dep 'pow.managed'
 
 dep 'ruby-dev' do
   requires 'rbenv.managed',
     'ruby-build.managed',
-    '1.9.3-p429.rbenv',
-    '1.9.3-p429 global',
+    '2.1.0-p0 global',
     'bundler.gem',
     'pry.gem',
     'powder.gem'
