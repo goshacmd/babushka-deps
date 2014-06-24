@@ -43,10 +43,10 @@ dep 'prezto' do
 end
 
 dep 'vundle' do
-  path = ENV['HOME'] / '.vim/bundles'
+  path = ENV['HOME'] / '.vim/bundle'
   met? { File.exists? path }
   meet do
-    mkdir_p(path)
+    shell "mkdir -p #{path}"
     git "https://github.com/gmarik/vundle.git", :to => path
   end
 end
